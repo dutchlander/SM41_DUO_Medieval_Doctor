@@ -19,10 +19,12 @@
 
         <meta-data
             android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts"
-        />
+            android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".login"></activity>
+        <activity android:name=".login" />
+        <activity android:name=".MainMenu" />
+        <activity android:name=".map" />
+        <activity android:name=".store"></activity>
     </application>
 
 </manifest>

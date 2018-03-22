@@ -59,7 +59,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         android:background="#ffffff"
-        android:onClick="checkLogin"
+        android:onClick="continueLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/doctor_password"
@@ -82,7 +82,7 @@
         app:layout_constraintTop_toBottomOf="@+id/loginButton" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/RegisterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"

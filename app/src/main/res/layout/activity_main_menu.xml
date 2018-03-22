@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ruud.medievaldoctor.MainMenu">
+
+    <TextView
+        android:id="@+id/tv_dialogue"
+        android:layout_width="324dp"
+        android:layout_height="144dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Your epic quest begins here. You are in the middle of the 13th age when the plague is hoarding dirty stinking peasants as victims, but do not worry you will not have to 'save' them ofcourse. Your goal is to achieve the pointiest of doctor sticks and the spookiest of doctor masks. You will achieve that by relieving peasants of their disease. You can start your epic journey right now! But beware..."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/mapButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/white"
+        android:onClick="goToMap"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dialogue"
+        app:srcCompat="@drawable/map_button" />
+
+    <ImageButton
+        android:id="@+id/store_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/white"
+        android:onClick="goToStore"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapButton"
+        app:srcCompat="@drawable/story_button" />
+
+    <ImageView
+        android:id="@+id/mdcLogo"
+        android:layout_width="59dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:srcCompat="@drawable/medieval_bitcoin" />
+
+    <TextView
+        android:id="@+id/medievalBitcoins"
+        android:layout_width="51dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/october_crow"
+        android:text="38"
+        android:textColor="@android:color/black"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mdcLogo" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/medievalBitcoins"
+        app:srcCompat="@android:drawable/ic_menu_info_details" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="341dp"
+        android:layout_height="36dp"
+        android:layout_marginLeft="16dp"
+        android:fontFamily="@font/october_crow"
+        android:text="Your sweet, sweet medieval bitcoins"
+        android:textColor="@android:color/black"
+        android:textSize="22sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_editor_absoluteY="467dp" />
+
+</android.support.constraint.ConstraintLayout>
