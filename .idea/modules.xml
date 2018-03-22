@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/SM41_DUO_Medieval_Doctor.iml" filepath="$PROJECT_DIR$/SM41_DUO_Medieval_Doctor.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mdgit.iml" filepath="$PROJECT_DIR$/mdgit.iml" />
     </modules>
   </component>
 </project>
