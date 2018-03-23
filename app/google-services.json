@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "396018024932",
+    "firebase_url": "https://medieval-doctor.firebaseio.com",
+    "project_id": "medieval-doctor",
+    "storage_bucket": "medieval-doctor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:396018024932:android:1853b8b1baeefa4d",
+        "android_client_info": {
+          "package_name": "com.example.ruud.medievaldoctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "396018024932-cns1jub2t59u5nvr1k6irdfavk4usjt2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ruud.medievaldoctor",
+            "certificate_hash": "9e296c16cdcac5725cb324201497eef4ae67a4df"
+          }
+        },
+        {
+          "client_id": "396018024932-50m6c8h1qvj35oh3hmfiqakgemg5mjta.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxhmuP0otWK8CxqEaTNTxE4M-_8aYbhdQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "396018024932-50m6c8h1qvj35oh3hmfiqakgemg5mjta.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
