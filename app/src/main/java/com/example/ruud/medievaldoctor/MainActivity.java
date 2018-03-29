@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void ContinueToLogin(View view){
+    public void GoToLogin(View view){
         startActivity(new Intent(MainActivity.this, login.class));
     }
 }

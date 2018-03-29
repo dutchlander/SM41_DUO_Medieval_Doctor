@@ -39,13 +39,13 @@ public class signUp extends AppCompatActivity implements View.OnClickListener{
         String password = newdoctor_password.getText().toString().trim();
 
         if (username.isEmpty()) {
-            newdoctor_name.setError("Are you realy that dumb?");
+            newdoctor_name.setError("What is a doctor without a name?");
             newdoctor_name.requestFocus();
             return;
         }
 
         if (password.isEmpty()) {
-            newdoctor_password.setError("You need to user protection");
+            newdoctor_password.setError("You need a password to protect your doctor secrets");
             newdoctor_password.requestFocus();
             return;
         }
@@ -60,7 +60,7 @@ public class signUp extends AppCompatActivity implements View.OnClickListener{
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(getApplicationContext(), "Great succes boiiii", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Your doctor adventure begins now...", Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -75,5 +75,10 @@ public class signUp extends AppCompatActivity implements View.OnClickListener{
                 registerUser();
             break;
         }
+    }
+
+    public void finishRegister(View view)
+    {
+        startActivity(new Intent(signUp.this, MainMenu.class));
     }
 }
