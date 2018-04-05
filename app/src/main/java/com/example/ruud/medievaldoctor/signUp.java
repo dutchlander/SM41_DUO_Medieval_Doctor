@@ -14,11 +14,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Random;
 
 
 public class signUp extends AppCompatActivity implements View.OnClickListener{
-
-    EditText newdoctor_name, newdoctor_password;
+    //name is the email, actual doctor name is the real doctor's name
+    EditText newdoctor_name, newdoctor_password, newdoctor_actualname;
 
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
@@ -29,8 +32,12 @@ public class signUp extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
+
         newdoctor_name = findViewById(R.id.newdoctor_name);
         newdoctor_password = findViewById(R.id.newdoctor_password);
+        newdoctor_actualname = findViewById(R.id.newdoctor_actualname);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -38,8 +45,9 @@ public class signUp extends AppCompatActivity implements View.OnClickListener{
     }
 
     private void registerUser() {
-        String username = newdoctor_name.getText().toString().trim();
+        final String username = newdoctor_name.getText().toString().trim(); // email
         String password = newdoctor_password.getText().toString().trim();
+        final String doctorActualName = newdoctor_actualname.getText().toString().trim();
 
         if (username.isEmpty()) {
             newdoctor_name.setError("What is a doctor without a name?");
@@ -63,7 +71,12 @@ public class signUp extends AppCompatActivity implements View.OnClickListener{
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
+
+                    Doctor doctor = new Doctor(doctorActualName, username, 50, 50, 50);
+
+                    mDatabase.child("users").setValue(doctor);
                     Toast.makeText(getApplicationContext(), "Your doctor adventure begins now...", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(signUp.this, MainMenu.class));
                 }
             }
         }

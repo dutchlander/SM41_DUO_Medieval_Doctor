@@ -50,7 +50,6 @@ public class battle extends AppCompatActivity implements SensorEventListener {
         //setting the bar to 100
         peasantHp.setProgress(100);
         doctorHp.setProgress(100);
-
     }
 
     @Override
@@ -85,7 +84,7 @@ public class battle extends AppCompatActivity implements SensorEventListener {
                 if (speed > SHAKE_THRESHOLD) {
                     // yes, this is a shake action! Do something about it!
                     isShaked = true;
-                    //TODO: implement new intent;
+                    //you have beaten the peasant
                     if(isPeasantDead)
                     {
                         //you have beaten the peasant to dead continue to the previous map
