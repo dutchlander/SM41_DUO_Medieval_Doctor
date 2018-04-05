@@ -7,12 +7,12 @@ import java.util.Random;
  */
 
 public class Doctor {
-    private String doctorName;
-    private String doctorEmail;
-    private int startingStrength;
-    private int startingSpeech;
-    private int startingCharisma;
-    private int startingBitcoins = 10;
+    public String doctorName;
+    public String doctorEmail;
+    public int startingStrength;
+    public int startingSpeech;
+    public int startingCharisma;
+    public int startingBitcoins;
 
 
     private int startingLevel = 1;
@@ -24,5 +24,6 @@ public class Doctor {
         this.startingStrength = rand.nextInt(str);
         this.startingSpeech = rand.nextInt(spe);
         this.startingCharisma = rand.nextInt(chari);
+        this.startingBitcoins = 10;
     }
 }
