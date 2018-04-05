@@ -32,7 +32,7 @@
         android:layout_marginTop="8dp"
         android:background="@android:color/black"
         android:fontFamily="@font/october_crow"
-        android:onClick="fight"
+        android:onClick="preText"
         android:shadowColor="@android:color/darker_gray"
         android:shadowRadius="50"
         android:text="Level 1"

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ruud.medievaldoctor">
-
     //add permission to be able to use internet
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -30,6 +29,8 @@
         <activity android:name=".store" />
         <activity android:name=".battle" />
         <activity android:name=".signUp" />
+        <activity android:name=".preText" />
+        <activity android:name=".afterText"></activity>
     </application>
 
 </manifest>

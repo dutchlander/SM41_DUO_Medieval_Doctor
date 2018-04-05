@@ -88,7 +88,7 @@ public class battle extends AppCompatActivity implements SensorEventListener {
                     if(isPeasantDead)
                     {
                         //you have beaten the peasant to dead continue to the previous map
-                        startActivity(new Intent(battle.this, map.class));
+                        startActivity(new Intent(battle.this, afterText.class));
 
                     }
                 }
