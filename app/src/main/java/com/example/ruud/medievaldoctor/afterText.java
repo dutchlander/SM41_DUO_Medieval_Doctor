@@ -5,17 +5,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class map extends AppCompatActivity {
+
+public class afterText extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map);
+        setContentView(R.layout.activity_after_text);
     }
 
-    public void preText(View view)
+    public void map(View view)
     {
-        startActivity(new Intent(map.this, preText.class));
+        startActivity(new Intent(afterText.this, map.class));
 
     }
 }
+
