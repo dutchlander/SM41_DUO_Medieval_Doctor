@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -50,6 +51,7 @@ public class battle extends AppCompatActivity implements SensorEventListener {
         //setting the bar to 100
         peasantHp.setProgress(100);
         doctorHp.setProgress(100);
+
     }
 
     @Override
@@ -151,6 +153,9 @@ public class battle extends AppCompatActivity implements SensorEventListener {
         {
             doctorHp.setProgress((doctorHp.getProgress()) - 10);
         }
+
+        MediaPlayer beatSound = MediaPlayer.create(this, R.raw.hit);
+        beatSound.start();
     }
 
     public void Seduce()
@@ -179,6 +184,8 @@ public class battle extends AppCompatActivity implements SensorEventListener {
             doctorHp.setProgress((doctorHp.getProgress()) - 10);
         }
 
+        //TODO: add sound effect for seduce - see beat void
+
     }
 
     public void Snub()
@@ -206,5 +213,6 @@ public class battle extends AppCompatActivity implements SensorEventListener {
         {
             doctorHp.setProgress((doctorHp.getProgress()) - 10);
         }
+        //TODO: add sound effect for seduce - see beat void
     }
 }

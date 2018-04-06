@@ -16,11 +16,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        startService(new Intent (this, MusicService.class));
 
     }
 
     public void GoToLogin(View view){
         startActivity(new Intent(MainActivity.this, login.class));
-        startService(new Intent(this, MusicService.class));
     }
 }
