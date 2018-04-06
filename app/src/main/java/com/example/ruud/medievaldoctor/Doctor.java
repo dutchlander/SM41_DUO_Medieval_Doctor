@@ -14,7 +14,6 @@ public class Doctor {
     public int startingCharisma;
     public int startingBitcoins;
 
-
     private int startingLevel = 1;
 
     public Doctor(String name, String email, int str, int spe, int chari) {

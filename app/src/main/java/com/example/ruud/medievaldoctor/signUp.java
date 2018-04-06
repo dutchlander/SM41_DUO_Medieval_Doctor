@@ -75,17 +75,13 @@ public class signUp extends AppCompatActivity implements View.OnClickListener{
                     Doctor doctor = new Doctor(doctorActualName, username, 50, 50, 50);
 
                     mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(doctor.toString());
-                    mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("name").setValue(doctorActualName);
-                    mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("email").setValue(username);
+                    mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("name").setValue(doctor.doctorName);
+                    mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("email").setValue(doctor.doctorEmail);
                     mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("bitcoins").setValue(doctor.startingBitcoins);
                     mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("str").setValue(doctor.startingStrength);
                     mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("sp").setValue(doctor.startingSpeech);
                     mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("ch").setValue(doctor.startingCharisma);
                     mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("level").setValue(1);
-
-
-
-
 
                     Toast.makeText(getApplicationContext(), "Your doctor adventure begins now...", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(signUp.this, MainMenu.class));
