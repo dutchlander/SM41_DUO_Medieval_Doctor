@@ -31,7 +31,7 @@
         <activity android:name=".signUp" />
         <activity android:name=".preText" />
         <activity android:name=".afterText"></activity>
-        <activity android:name=".MusicService" />
+        <service android:name=".MusicService" />
     </application>
 
 </manifest>

@@ -16,14 +16,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        MediaPlayer player = MediaPlayer.create(this, R.raw.background_music);
-        player.setLooping(true);
-        player.start();
+        startService(new Intent (this, MusicService.class));
 
     }
 
     public void GoToLogin(View view){
         startActivity(new Intent(MainActivity.this, login.class));
-        startService(new Intent(this, MusicService.class));
     }
 }
