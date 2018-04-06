@@ -16,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        MediaPlayer player = MediaPlayer.create(this, R.raw.background_music);
+        player.setLooping(true);
+        player.start();
 
     }
 
