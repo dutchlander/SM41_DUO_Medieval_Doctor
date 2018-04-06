@@ -10,16 +10,31 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class battle extends AppCompatActivity implements SensorEventListener {
 
     private boolean isPeasantDead = false;
+
+    TextView doctorname;
 
     private long lastUpdate = -1;
     private float x, y, z;
@@ -36,14 +51,23 @@ public class battle extends AppCompatActivity implements SensorEventListener {
     int peasantSeduce = rand.nextInt(50);
     int peasantSpeech = rand.nextInt(50);
 
-    int doctorStrength = 35;
-    int doctorSeduce = 38;
-    int doctorSpeech = 12;
+    int doctorStrength;
+    int doctorSeduce;
+    int doctorSpeech;
+    String doctorName;
+
+
+    private FirebaseUser user;
+    private String uid;
+    private List<String> itemlist;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_battle);
+
+        doctorname = findViewById(R.id.tv_doctorName);
 
 
         peasantHp = (ProgressBar) findViewById(R.id.enemyProgressBar);
@@ -51,6 +75,39 @@ public class battle extends AppCompatActivity implements SensorEventListener {
         //setting the bar to 100
         peasantHp.setProgress(100);
         doctorHp.setProgress(100);
+
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        uid = user.getUid();
+        itemlist = new ArrayList<>();
+
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                String name=dataSnapshot.child("users").child(uid).child("name").getValue(String.class);
+                Integer strength=dataSnapshot.child("users").child(uid).child("str").getValue(Integer.class);
+                Integer seduce=dataSnapshot.child("users").child(uid).child("ch").getValue(Integer.class);
+                Integer speech=dataSnapshot.child("users").child(uid).child("sp").getValue(Integer.class);
+
+                doctorName = name;
+                doctorname.setText(doctorName);
+
+                doctorStrength = strength;
+
+                doctorSeduce = seduce;
+
+                doctorSpeech = speech;
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
     }
 
