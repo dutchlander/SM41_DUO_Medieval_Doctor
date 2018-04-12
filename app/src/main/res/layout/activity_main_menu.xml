@@ -59,7 +59,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         android:fontFamily="@font/october_crow"
-        android:text="38"
+        android:text=""
         android:textColor="@android:color/black"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"

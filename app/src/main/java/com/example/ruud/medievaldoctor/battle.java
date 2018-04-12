@@ -55,7 +55,11 @@ public class battle extends AppCompatActivity implements SensorEventListener {
     int doctorStrength;
     int doctorSeduce;
     int doctorSpeech;
+<<<<<<< Updated upstream
 
+=======
+    int doctorBitcoin;
+>>>>>>> Stashed changes
     String doctorName;
 
 
@@ -87,10 +91,18 @@ public class battle extends AppCompatActivity implements SensorEventListener {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
+<<<<<<< Updated upstream
                 String name = dataSnapshot.child("users").child(uid).child("name").getValue(String.class);
                 Integer strength = dataSnapshot.child("users").child(uid).child("str").getValue(Integer.class);
                 Integer seduce = dataSnapshot.child("users").child(uid).child("ch").getValue(Integer.class);
                 Integer speech = dataSnapshot.child("users").child(uid).child("sp").getValue(Integer.class);
+=======
+                String name=dataSnapshot.child("users").child(uid).child("name").getValue(String.class);
+                Integer strength=dataSnapshot.child("users").child(uid).child("str").getValue(Integer.class);
+                Integer seduce=dataSnapshot.child("users").child(uid).child("ch").getValue(Integer.class);
+                Integer speech=dataSnapshot.child("users").child(uid).child("sp").getValue(Integer.class);
+                Integer bitcoin=dataSnapshot.child("users").child(uid).child("bitcoins").getValue(Integer.class);
+>>>>>>> Stashed changes
 
                 doctorName = name;
                 doctorname.setText(doctorName);
@@ -100,6 +112,8 @@ public class battle extends AppCompatActivity implements SensorEventListener {
                 doctorSeduce = seduce;
 
                 doctorSpeech = speech;
+
+                doctorBitcoin = bitcoin;
 
             }
 
@@ -171,6 +185,16 @@ public class battle extends AppCompatActivity implements SensorEventListener {
 
     }
 
+
+    public void DeathCheck()
+    {
+        if (isPeasantDead == true)
+        {
+            doctorBitcoin = doctorBitcoin + 5;
+            databaseReference.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("bitcoins").setValue(doctorBitcoin);
+        }
+    }
+
     //@Override
     public void buttonPress(View view) {
         peasantStrength = rand.nextInt(50); // Gives n such that 0 <= n < 50
@@ -191,6 +215,8 @@ public class battle extends AppCompatActivity implements SensorEventListener {
 
     public void Beat()
     {
+        DeathCheck();
+
         if(doctorHp.getProgress() < 10 || peasantHp.getProgress() < 10)
         {
             if(doctorHp.getProgress() < 10)
@@ -220,6 +246,8 @@ public class battle extends AppCompatActivity implements SensorEventListener {
 
     public void Seduce()
     {
+        DeathCheck();
+
         if(doctorHp.getProgress() < 10 || peasantHp.getProgress() < 10)
         {
             if(doctorHp.getProgress() < 10)
@@ -232,6 +260,7 @@ public class battle extends AppCompatActivity implements SensorEventListener {
             {
                 Toast.makeText(this, "Shake your phone to beat the shit out of this peasant and grab his medieval bitcoin", Toast.LENGTH_LONG).show();
                 isPeasantDead = true;
+
             }
         }
         else if(doctorSeduce > peasantSeduce)
@@ -250,6 +279,8 @@ public class battle extends AppCompatActivity implements SensorEventListener {
 
     public void Snub()
     {
+        DeathCheck();
+
         if(doctorHp.getProgress() < 10 || peasantHp.getProgress() < 10)
         {
             //TODO: send back to map activity
@@ -276,4 +307,5 @@ public class battle extends AppCompatActivity implements SensorEventListener {
         MediaPlayer beatSound = MediaPlayer.create(this, R.raw.hit);
         beatSound.start();
     }
+
 }

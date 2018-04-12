@@ -8,35 +8,65 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainMenu extends AppCompatActivity {
 
-    Doctor doctor;
-    TextView bitcoins;
-    //FirebaseUser currentFirebaseUser;
-    //DatabaseReference currentUser;
 
-    // Get a reference to our posts
-    DatabaseReference allRef, usersRef;
+    TextView tvbitcoins;
+
+    private FirebaseUser user;
+    private String uid;
+    private List<String> itemlist;
+    private DatabaseReference databaseReference;
+
+    String doctorBitcoins;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-        bitcoins = (TextView)findViewById(R.id.medievalBitcoins);
-        //currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        //currentUser = FirebaseDatabase.getInstance().getReference("users").child(currentFirebaseUser.toString());
-        //doctor = new Doctor(currentUser.child("name").toString(), currentUser.child("email").toString(), Integer.parseInt(currentUser.child("str").toString()), Integer.parseInt(currentUser.child("sp").toString()), Integer.parseInt(currentUser.child("ch").toString()));
-        //bitcoins.setText(doctor.startingBitcoins);
-        allRef = FirebaseDatabase.getInstance().getReference();
-        usersRef = allRef.child("users");
+
+        tvbitcoins = (TextView)findViewById(R.id.medievalBitcoins);
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        uid = user.getUid();
+        itemlist = new ArrayList<>();
+
+<<<<<<< Updated upstream
+=======
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                Integer bitcoins=dataSnapshot.child("users").child(uid).child("bitcoins").getValue(Integer.class);
+
+                doctorBitcoins = Integer.toString(bitcoins);
+                tvbitcoins.setText(doctorBitcoins);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
     }
 
+
+>>>>>>> Stashed changes
     public void goToMap(View view)
     {
         startActivity(new Intent(MainMenu.this, map.class));
