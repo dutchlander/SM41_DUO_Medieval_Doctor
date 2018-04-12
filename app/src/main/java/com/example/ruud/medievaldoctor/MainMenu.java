@@ -42,8 +42,7 @@ public class MainMenu extends AppCompatActivity {
         uid = user.getUid();
         itemlist = new ArrayList<>();
 
-<<<<<<< Updated upstream
-=======
+
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -66,7 +65,7 @@ public class MainMenu extends AppCompatActivity {
     }
 
 
->>>>>>> Stashed changes
+
     public void goToMap(View view)
     {
         startActivity(new Intent(MainMenu.this, map.class));

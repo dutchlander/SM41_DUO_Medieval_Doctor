@@ -55,11 +55,8 @@ public class battle extends AppCompatActivity implements SensorEventListener {
     int doctorStrength;
     int doctorSeduce;
     int doctorSpeech;
-<<<<<<< Updated upstream
 
-=======
     int doctorBitcoin;
->>>>>>> Stashed changes
     String doctorName;
 
 
@@ -91,18 +88,13 @@ public class battle extends AppCompatActivity implements SensorEventListener {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-<<<<<<< Updated upstream
-                String name = dataSnapshot.child("users").child(uid).child("name").getValue(String.class);
-                Integer strength = dataSnapshot.child("users").child(uid).child("str").getValue(Integer.class);
-                Integer seduce = dataSnapshot.child("users").child(uid).child("ch").getValue(Integer.class);
-                Integer speech = dataSnapshot.child("users").child(uid).child("sp").getValue(Integer.class);
-=======
+
                 String name=dataSnapshot.child("users").child(uid).child("name").getValue(String.class);
                 Integer strength=dataSnapshot.child("users").child(uid).child("str").getValue(Integer.class);
                 Integer seduce=dataSnapshot.child("users").child(uid).child("ch").getValue(Integer.class);
                 Integer speech=dataSnapshot.child("users").child(uid).child("sp").getValue(Integer.class);
                 Integer bitcoin=dataSnapshot.child("users").child(uid).child("bitcoins").getValue(Integer.class);
->>>>>>> Stashed changes
+
 
                 doctorName = name;
                 doctorname.setText(doctorName);
