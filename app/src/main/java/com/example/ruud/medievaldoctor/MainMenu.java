@@ -37,11 +37,6 @@ public class MainMenu extends AppCompatActivity {
 
     }
 
-
-
-
-
-
     public void goToMap(View view)
     {
         startActivity(new Intent(MainMenu.this, map.class));

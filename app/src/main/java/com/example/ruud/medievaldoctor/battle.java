@@ -47,13 +47,15 @@ public class battle extends AppCompatActivity implements SensorEventListener {
     private ProgressBar doctorHp;
 
     Random rand = new Random();
-    int peasantStrength = rand.nextInt(50); // Gives n such that 0 <= n < 50
-    int peasantSeduce = rand.nextInt(50);
-    int peasantSpeech = rand.nextInt(50);
+
+    int peasantStrength;
+    int peasantSeduce;
+    int peasantSpeech;
 
     int doctorStrength;
     int doctorSeduce;
     int doctorSpeech;
+
     String doctorName;
 
 
@@ -69,13 +71,11 @@ public class battle extends AppCompatActivity implements SensorEventListener {
 
         doctorname = findViewById(R.id.tv_doctorName);
 
-
         peasantHp = (ProgressBar) findViewById(R.id.enemyProgressBar);
         doctorHp = (ProgressBar) findViewById(R.id.doctorProgressBar);
-        //setting the bar to 100
+
         peasantHp.setProgress(100);
         doctorHp.setProgress(100);
-
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
@@ -87,10 +87,10 @@ public class battle extends AppCompatActivity implements SensorEventListener {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                String name=dataSnapshot.child("users").child(uid).child("name").getValue(String.class);
-                Integer strength=dataSnapshot.child("users").child(uid).child("str").getValue(Integer.class);
-                Integer seduce=dataSnapshot.child("users").child(uid).child("ch").getValue(Integer.class);
-                Integer speech=dataSnapshot.child("users").child(uid).child("sp").getValue(Integer.class);
+                String name = dataSnapshot.child("users").child(uid).child("name").getValue(String.class);
+                Integer strength = dataSnapshot.child("users").child(uid).child("str").getValue(Integer.class);
+                Integer seduce = dataSnapshot.child("users").child(uid).child("ch").getValue(Integer.class);
+                Integer speech = dataSnapshot.child("users").child(uid).child("sp").getValue(Integer.class);
 
                 doctorName = name;
                 doctorname.setText(doctorName);
@@ -173,6 +173,9 @@ public class battle extends AppCompatActivity implements SensorEventListener {
 
     //@Override
     public void buttonPress(View view) {
+        peasantStrength = rand.nextInt(50); // Gives n such that 0 <= n < 50
+        peasantSeduce = rand.nextInt(50);
+        peasantSpeech = rand.nextInt(50);
         switch(view.getId()){
             case R.id.beatButton:
                 Beat();
@@ -219,7 +222,6 @@ public class battle extends AppCompatActivity implements SensorEventListener {
     {
         if(doctorHp.getProgress() < 10 || peasantHp.getProgress() < 10)
         {
-            //TODO: send back to map activity
             if(doctorHp.getProgress() < 10)
             {
                 //TODO: peasant won
