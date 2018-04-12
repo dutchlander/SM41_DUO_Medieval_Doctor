@@ -146,7 +146,7 @@ public class battle extends AppCompatActivity implements SensorEventListener {
                     //you have beaten the peasant
                     if(isPeasantDead)
                     {
-                        //you have beaten the peasant to dead continue to the previous map
+                        //you have beaten the peasant to dead continue to the next activity
                         startActivity(new Intent(battle.this, afterText.class));
 
                     }
@@ -243,7 +243,8 @@ public class battle extends AppCompatActivity implements SensorEventListener {
             doctorHp.setProgress((doctorHp.getProgress()) - 10);
         }
 
-        //TODO: add sound effect for seduce - see beat void
+        MediaPlayer beatSound = MediaPlayer.create(this, R.raw.hit);
+        beatSound.start();
 
     }
 
@@ -272,6 +273,7 @@ public class battle extends AppCompatActivity implements SensorEventListener {
         {
             doctorHp.setProgress((doctorHp.getProgress()) - 10);
         }
-        //TODO: add sound effect for seduce - see beat void
+        MediaPlayer beatSound = MediaPlayer.create(this, R.raw.hit);
+        beatSound.start();
     }
 }
